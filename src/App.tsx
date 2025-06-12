@@ -5,10 +5,11 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import { alpha } from '@mui/material/styles'
 import AppNavbar from './components/AppNavbar'
+import AppTheme from './theme/AppTheme'
 
 function Dashboard() {
   return (
-    <>
+    <AppTheme>
       <CssBaseline enableColorScheme />
       <Box sx={{ display: 'flex' }}>
         <SideMenu />
@@ -36,7 +37,7 @@ function Dashboard() {
           </Stack>
         </Box>
       </Box>
-    </>
+    </AppTheme>
   )
 }
 
