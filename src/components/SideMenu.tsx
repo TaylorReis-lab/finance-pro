@@ -6,6 +6,7 @@ import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import SelectContent from './SelectContent'
 import MenuContent from './MenuContent'
 import OptionsMenu from './OptionsMenu'
 
@@ -39,12 +40,14 @@ export default function SideMenu() {
           mt: 'calc(var(--template-frame-height, 0px) + 4px)',
           p: 1.5,
         }}
-      ></Box>
+      >
+        <SelectContent />
+      </Box>
       <Divider />
       <Box
         sx={{
           overflow: 'auto',
-          height: '50%',
+          height: '100%',
           display: 'flex',
           flexDirection: 'column',
         }}
@@ -61,21 +64,13 @@ export default function SideMenu() {
           borderColor: 'divider',
         }}
       >
-        <Avatar
-          sizes="small"
-          alt="Riley Carter"
-          src="/static/images/avatar/7.jpg"
-          sx={{ width: 36, height: 36 }}
-        />
+        <Avatar sizes="small" alt="Taylor Reis" src="/static/images/avatar/7.jpg" sx={{ width: 36, height: 36 }} />
         <Box sx={{ mr: 'auto' }}>
-          <Typography
-            variant="body2"
-            sx={{ fontWeight: 500, lineHeight: '16px' }}
-          >
-            Riley Carter
+          <Typography variant="body2" sx={{ fontWeight: 500, lineHeight: '16px' }}>
+            Taylor Reis
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            riley@email.com
+            taylor-reis@outlook.com
           </Typography>
         </Box>
         <OptionsMenu />

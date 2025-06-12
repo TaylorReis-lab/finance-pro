@@ -1,9 +1,9 @@
-import { alpha, Theme } from '@mui/material/styles';
-import type { PickersProComponents } from '@mui/x-date-pickers-pro/themeAugmentation';
-import type { PickerComponents } from '@mui/x-date-pickers/themeAugmentation';
-import { menuItemClasses } from '@mui/material/MenuItem';
-import { pickersDayClasses, yearCalendarClasses } from '@mui/x-date-pickers';
-import { gray, brand } from '../../../shared-theme/themePrimitives';
+import { alpha, Theme } from '@mui/material/styles'
+import type { PickersProComponents } from '@mui/x-date-pickers-pro/themeAugmentation'
+import type { PickerComponents } from '@mui/x-date-pickers/themeAugmentation'
+import { menuItemClasses } from '@mui/material/MenuItem'
+import { pickersDayClasses, yearCalendarClasses } from '@mui/x-date-pickers'
+import { gray, brand } from '../themePrimitives'
 
 /* eslint-disable import/prefer-default-export */
 export const datePickersCustomizations: PickersProComponents<Theme> & PickerComponents<Theme> = {
@@ -15,16 +15,14 @@ export const datePickersCustomizations: PickersProComponents<Theme> & PickerComp
         border: `1px solid ${(theme.vars || theme).palette.divider}`,
         backgroundImage: 'none',
         background: 'hsl(0, 0%, 100%)',
-        boxShadow:
-          'hsla(220, 30%, 5%, 0.07) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.07) 0px 8px 16px -5px',
+        boxShadow: 'hsla(220, 30%, 5%, 0.07) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.07) 0px 8px 16px -5px',
         [`& .${menuItemClasses.root}`]: {
           borderRadius: 6,
           margin: '0 6px',
         },
         ...theme.applyStyles('dark', {
           background: gray[900],
-          boxShadow:
-            'hsla(220, 30%, 5%, 0.7) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.8) 0px 8px 16px -5px',
+          boxShadow: 'hsla(220, 30%, 5%, 0.7) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.8) 0px 8px 16px -5px',
         }),
       }),
     },
@@ -170,4 +168,4 @@ export const datePickersCustomizations: PickersProComponents<Theme> & PickerComp
       }),
     },
   },
-};
+}
