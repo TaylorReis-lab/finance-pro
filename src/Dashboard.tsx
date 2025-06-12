@@ -16,6 +16,7 @@ import {
   datePickersCustomizations,
   treeViewCustomizations,
 } from './theme/customizations'
+import MainGrid from './components/MainGrid'
 
 const xThemeComponents = {
   ...chartsCustomizations,
@@ -52,6 +53,7 @@ export default function Dashboard(props: { disableCustomTheme?: boolean }) {
             }}
           >
             <Header />
+            <MainGrid />
           </Stack>
         </Box>
       </Box>
