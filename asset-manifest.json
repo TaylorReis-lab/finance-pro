@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/finance-pro/static/js/main.dfd8df4e.js",
+    "index.html": "/finance-pro/index.html",
+    "main.dfd8df4e.js.map": "/finance-pro/static/js/main.dfd8df4e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.dfd8df4e.js"
+  ]
+}
