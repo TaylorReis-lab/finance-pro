@@ -2,6 +2,7 @@
   "name": "finance-pro",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://taylorreis.github.io/finance-pro",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -37,7 +38,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -52,6 +55,11 @@
     ]
   },
   "rules": {
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "on"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
+    "gh-pages": "^6.3.0"
   }
 }
