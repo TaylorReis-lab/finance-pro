@@ -1,0 +1,11 @@
+title: Meu Site
+description: Site com Jekyll
+baseurl: ""
+url: ""
+theme: minima
+
+sass:
+  sass_dir: assets/css
+
+# Forçar Jekyll a usar a raiz e não procurar "docs/"
+source: .
