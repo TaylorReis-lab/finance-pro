@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "GIT_TERMINAL_PROMPT": "0",
+      "NODE_OPTIONS": "--openssl-legacy-provider"
+    }
+  }
+}
