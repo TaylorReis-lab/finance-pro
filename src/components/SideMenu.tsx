@@ -41,7 +41,7 @@ export default function SideMenu() {
           p: 1.5,
         }}
       ></Box>
-      <FinexaLogo />
+      <FinexaLogo width={30} height={90} />
       <Divider />
       <Box
         sx={{

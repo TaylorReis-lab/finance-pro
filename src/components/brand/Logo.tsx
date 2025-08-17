@@ -2,7 +2,13 @@ import { useTheme } from '@mui/material/styles'
 import { Box, Typography } from '@mui/material'
 import { memo } from 'react'
 
-export const FinexaLogo = memo(() => {
+type FinexaLogoProps = {
+  width?: number | string
+  height?: number | string
+  style?: React.CSSProperties
+}
+
+export const FinexaLogo = memo(({ width = 120, height = 45 }: FinexaLogoProps) => {
   const theme = useTheme()
   const isDarkMode = theme.palette.mode === 'dark'
 
@@ -31,8 +37,8 @@ export const FinexaLogo = memo(() => {
       {/* SVG Dinâmico */}
       <Box
         component="svg"
-        width="15%"
-        height="45px"
+        width={width}
+        height={height}
         marginLeft="15px"
         viewBox="0 0 32 32"
         fill="none"

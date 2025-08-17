@@ -30,12 +30,12 @@ export default function PageViewsBarChart() {
             }}
           >
             <Typography variant="h4" component="p">
-              1.3M
+              1.4M
             </Typography>
-            <Chip size="small" color="error" label="-8%" />
+            <Chip size="small" color="error" label="-10%" />
           </Stack>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Page views and downloads for the last 6 months
+            Page views and downloads for the last 4 months
           </Typography>
         </Stack>
         <BarChart
