@@ -1,0 +1,17 @@
+{
+  "settings": "Configurações",
+  "systemTheme": "Tema do Sistema",
+  "dateFormat": "Formato de data",
+  "currency": "Moeda padrão",
+  "language": "Idioma",
+  "saveChanges": "Salvar alterações",
+  "settingsSaved": "Configurações salvas!",
+  "dateFormatDDMMYYYY": "DD/MM/AAAA",
+  "dateFormatMMDDYYYY": "MM/DD/AAAA",
+  "dateFormatYYYYMMDD": "AAAA-MM-DD",
+  "currencyBRL": "Real (R$)",
+  "currencyUSD": "Dólar ($)",
+  "currencyEUR": "Euro (€)",
+  "languagePT": "Português",
+  "languageEN": "Inglês"
+}
