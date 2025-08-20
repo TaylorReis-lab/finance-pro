@@ -8,6 +8,7 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import AppNavbar from '../components/AppNavbar'
 import Header from '../components/Header'
+import NavbarBreadcrumbs from '../components/NavbarBreadcrumbs'
 import SideMenu from '../components/SideMenu'
 import AppTheme from '../theme/AppTheme'
 import {

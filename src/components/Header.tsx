@@ -2,13 +2,27 @@ import * as React from 'react'
 import Stack from '@mui/material/Stack'
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded'
 import CustomDatePicker from './CustomDatePicker'
-import NavbarBreadcrumbs from './NavbarBreadcrumbs'
 import MenuButton from './MenuButton'
 import ColorModeIconDropdown from '../theme/ColorModeIconDropdown'
+import { useLocation, Link } from 'react-router-dom'
+import NavbarBreadcrumbs from './NavbarBreadcrumbs'
 
 import Search from './Search'
 
+const routeNameMap: Record<string, string> = {
+  '/': 'Home',
+  '/about': 'Sobre',
+  '/settings': 'Configurações',
+}
+
 export default function Header() {
+  const location = useLocation()
+  const path = location.pathname
+
+  const items = [
+    { label: 'Dashboard', href: '/' },
+    { label: routeNameMap[path], active: true }
+  ]
   return (
     <Stack
       direction="row"
@@ -22,7 +36,7 @@ export default function Header() {
       }}
       spacing={2}
     >
-      <NavbarBreadcrumbs />
+      <NavbarBreadcrumbs items={items} />
       <Stack direction="row" sx={{ gap: 1 }}>
         <Search />
         <CustomDatePicker />

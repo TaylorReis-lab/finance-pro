@@ -11,6 +11,7 @@ import AppNavbar from '../components/AppNavbar'
 import SideMenu from '../components/SideMenu'
 import Header from '../components/Header'
 import { FinexaLogo } from '../components/brand/Logo'
+import NavbarBreadcrumbs from '../components/NavbarBreadcrumbs'
 
 const developer = {
   name: 'Taylor Reis',
@@ -26,8 +27,8 @@ const projectLinks = [
 export default function About() {
   return (
     <AppTheme>
-      <CssBaseline enableColorScheme />
       <Header />
+      <CssBaseline enableColorScheme />
       <SideMenu />
       <AppNavbar />
       <Box
@@ -44,72 +45,86 @@ export default function About() {
         })}
       >
         <Paper
-          elevation={6}
+          variant="outlined"
           sx={{
-            maxWidth: 650,
+            maxWidth: 700,
             width: '100%',
             p: 5,
-            borderRadius: 4,
+            borderRadius: 3,
+            backgroundColor: 'background.paper',
             textAlign: 'center',
-            background: 'linear-gradient(160deg, #1e1e2f, #2a2a40)',
-            color: '#fff',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
           }}
         >
-          <Stack spacing={2} alignItems="center" sx={{ mb: 2 }}>
+          <Stack spacing={2} alignItems="center" sx={{ mb: 3 }}>
             <FinexaLogo width={60} height={90} />
-            <Typography variant="h5" fontWeight="bold">
+            <Typography variant="h5" fontWeight={600} color="primary.main">
               Sobre a aplicação
             </Typography>
           </Stack>
 
-          <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.7, color: 'rgba(255,255,255,0.8)' }}>
-            O Finance é uma solução completa para gestão financeira pessoal. Com ele, você pode controlar receitas,
-            despesas, visualizar gráficos, planejar seu orçamento e acompanhar seu progresso financeiro de forma simples
-            e intuitiva. Desenvolvido para ajudar você a conquistar seus objetivos e ter mais tranquilidade no seu dia a
+          <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.7, color: 'text.secondary' }}>
+            O <strong>Finexa</strong> é uma solução completa para gestão financeira pessoal. Permite controlar receitas,
+            despesas, visualizar gráficos, planejar o orçamento e acompanhar o progresso financeiro de forma simples e
+            intuitiva. Foi desenvolvido para ajudar você a conquistar seus objetivos e ter mais tranquilidade no dia a
             dia.
           </Typography>
 
-          <Typography variant="h6" fontWeight="bold" gutterBottom>
-            Desenvolvedor
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 3 }}>
-            <strong>{developer.name}</strong>
-            <br />
-            <a href={developer.github} target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>
-              GitHub
-            </a>{' '}
-            |{' '}
-            <a href={developer.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>
-              LinkedIn
-            </a>
-          </Typography>
+          <Stack spacing={4}>
+            {/* Desenvolvedor */}
+            <Box>
+              <Typography variant="subtitle1" fontWeight={600} gutterBottom>
+                Desenvolvedor
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                <strong>{developer.name}</strong>
+              </Typography>
+              <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 1 }}>
+                <Button
+                  href={developer.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="small"
+                  variant="outlined"
+                >
+                  GitHub
+                </Button>
+                <Button
+                  href={developer.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="small"
+                  variant="outlined"
+                >
+                  LinkedIn
+                </Button>
+              </Stack>
+            </Box>
 
-          <Typography variant="h6" fontWeight="bold" gutterBottom>
-            Links úteis
-          </Typography>
-          <Stack spacing={2} alignItems="center">
-            {projectLinks.map(link => (
-              <Button
-                key={link.url}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outlined"
-                sx={{
-                  borderColor: '#90caf9',
-                  color: '#90caf9',
-                  textTransform: 'none',
-                  fontWeight: 600,
-                  '&:hover': {
-                    backgroundColor: 'rgba(144,202,249,0.1)',
-                    borderColor: '#42a5f5',
-                  },
-                }}
-              >
-                {link.name}
-              </Button>
-            ))}
+            {/* Links úteis */}
+            <Box>
+              <Typography variant="subtitle1" fontWeight={600} gutterBottom>
+                Links úteis
+              </Typography>
+              <Stack spacing={2} alignItems="center">
+                {projectLinks.map(link => (
+                  <Button
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    fullWidth
+                    variant="outlined"
+                    sx={{
+                      textTransform: 'none',
+                      fontWeight: 500,
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {link.name}
+                  </Button>
+                ))}
+              </Stack>
+            </Box>
           </Stack>
         </Paper>
       </Box>

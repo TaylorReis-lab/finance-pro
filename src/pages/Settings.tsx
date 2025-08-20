@@ -1,16 +1,5 @@
 import React, { useState } from 'react'
-import { useTheme } from '@mui/material/styles'
-import {
-  Box,
-  Typography,
-  Button,
-  Select,
-  MenuItem,
-  Divider,
-  Paper,
-  Grid,
-  Stack,
-} from '@mui/material'
+import { Box, Typography, Divider, Paper, Select, MenuItem, Stack } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import ColorModeSelect from '../theme/ColorModeSelect'
 import AppTheme from '../theme/AppTheme'
@@ -49,78 +38,95 @@ const Settings: React.FC = () => {
     <AppTheme>
       <SideMenu />
       <AppNavbar />
-      <Box sx={{ margin: '40px auto', maxWidth: 900, px: 3 }}>
-        <Typography variant="h4" gutterBottom sx={{ color: 'primary.main', mb: 3 }}>
+
+      <Box sx={{ margin: '40px auto', maxWidth: 1000, px: 3 }}>
+        <Typography variant="h5" gutterBottom sx={{ color: 'primary.main', mb: 3, fontWeight: 600 }}>
           {t('settings')}
         </Typography>
 
-        <Grid container spacing={3}>
+        <Stack spacing={3}>
           {/* Tema */}
-          <Grid item xs={12} md={6}>
-            <Paper elevation={2} sx={{ p: 3, borderRadius: 3 }}>
-              <Typography variant="h6" gutterBottom>
-                {t('systemTheme')}
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
-              <ColorModeSelect fullWidth />
-            </Paper>
-          </Grid>
+          <Paper
+            variant="outlined"
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              backgroundColor: 'background.paper',
+            }}
+          >
+            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 500 }}>
+              {t('systemTheme')}
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <ColorModeSelect fullWidth />
+          </Paper>
 
-          {/* Formato de data */}
-          <Grid item xs={12} md={6}>
-            <Paper elevation={2} sx={{ p: 3, borderRadius: 3 }}>
-              <Typography variant="h6" gutterBottom>
-                {t('dateFormat')}
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
-              <Select value={dateFormat} onChange={e => setDateFormat(e.target.value)} fullWidth>
-                {dateFormats.map(df => (
-                  <MenuItem key={df.value} value={df.value}>
-                    {t(df.labelKey)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Paper>
-          </Grid>
+          {/* Formato de Data */}
+          <Paper
+            variant="outlined"
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              backgroundColor: 'background.paper',
+            }}
+          >
+            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 500 }}>
+              {t('dateFormat')}
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <Select value={dateFormat} onChange={e => setDateFormat(e.target.value)} fullWidth variant="outlined">
+              {dateFormats.map(df => (
+                <MenuItem key={df.value} value={df.value}>
+                  {t(df.labelKey)}
+                </MenuItem>
+              ))}
+            </Select>
+          </Paper>
 
           {/* Moeda */}
-          <Grid item xs={12} md={6}>
-            <Paper elevation={2} sx={{ p: 3, borderRadius: 3 }}>
-              <Typography variant="h6" gutterBottom>
-                {t('currency')}
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
-              <Select value={currency} onChange={e => setCurrency(e.target.value)} fullWidth>
-                {currencies.map(c => (
-                  <MenuItem key={c.value} value={c.value}>
-                    {t(c.labelKey)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Paper>
-          </Grid>
+          <Paper
+            variant="outlined"
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              backgroundColor: 'background.paper',
+            }}
+          >
+            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 500 }}>
+              {t('currency')}
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <Select value={currency} onChange={e => setCurrency(e.target.value)} fullWidth variant="outlined">
+              {currencies.map(c => (
+                <MenuItem key={c.value} value={c.value}>
+                  {t(c.labelKey)}
+                </MenuItem>
+              ))}
+            </Select>
+          </Paper>
 
           {/* Idioma */}
-          <Grid item xs={12} md={6}>
-            <Paper elevation={2} sx={{ p: 3, borderRadius: 3 }}>
-              <Typography variant="h6" gutterBottom>
-                {t('language')}
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
-              <Select
-                value={language}
-                onChange={e => handleLanguageChange(e.target.value)}
-                fullWidth
-              >
-                {languages.map(l => (
-                  <MenuItem key={l.value} value={l.value}>
-                    {t(l.labelKey)}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Paper>
-          </Grid>
-        </Grid>
+          <Paper
+            variant="outlined"
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              backgroundColor: 'background.paper',
+            }}
+          >
+            <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 500 }}>
+              {t('language')}
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <Select value={language} onChange={e => handleLanguageChange(e.target.value)} fullWidth variant="outlined">
+              {languages.map(l => (
+                <MenuItem key={l.value} value={l.value}>
+                  {t(l.labelKey)}
+                </MenuItem>
+              ))}
+            </Select>
+          </Paper>
+        </Stack>
       </Box>
     </AppTheme>
   )
