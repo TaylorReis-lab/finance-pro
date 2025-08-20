@@ -13,6 +13,7 @@ const routeNameMap: Record<string, string> = {
   '/': 'Home',
   '/about': 'Sobre',
   '/settings': 'Configurações',
+  '/clients': 'Clients',
 }
 
 export default function Header() {
@@ -21,7 +22,7 @@ export default function Header() {
 
   const items = [
     { label: 'Dashboard', href: '/' },
-    { label: routeNameMap[path], active: true }
+    { label: routeNameMap[path], active: true },
   ]
   return (
     <Stack

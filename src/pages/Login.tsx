@@ -29,7 +29,7 @@ const GitHubIcon = () => (
 )
 
 export default function Login() {
-  const [email, setEmail] = React.useState('your.email@provider.com')
+  const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [showPassword, setShowPassword] = React.useState(false)
   const [loaded, setLoaded] = React.useState(false)
