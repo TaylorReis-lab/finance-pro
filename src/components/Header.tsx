@@ -13,7 +13,8 @@ const routeNameMap: Record<string, string> = {
   '/': 'Home',
   '/about': 'Sobre',
   '/settings': 'Configurações',
-  '/clients': 'Clients',
+  '/clients': 'Clientes',
+  '/feedback': 'Feedback',
 }
 
 export default function Header() {

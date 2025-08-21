@@ -5,6 +5,7 @@ import Dashboard from '../pages/Dashboard'
 import Settings from '../pages/Settings'
 import Clients from '../pages/Clients'
 import NotFound from '../pages/NotFound' 
+import FeedbackForm from '../pages/FeedbackForm'
 
 export default function AppRoutes() {
   return (
@@ -15,6 +16,7 @@ export default function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/clients" element={<Clients />} />
+        <Route path="/feedback" element={<FeedbackForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
