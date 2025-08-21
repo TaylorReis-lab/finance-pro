@@ -1,13 +1,15 @@
-name: Deploy Finance Pro
+name: CI Finance Pro
 
 on:
   push:
     branches:
-      - main # ou a branch que você usa para deploy
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: --max-old-space-size=4096  # aumenta memória para 4GB
 
     steps:
       - name: Checkout código
@@ -23,12 +25,3 @@ jobs:
 
       - name: Build projeto
         run: yarn build
-
-      - name: Deploy para GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-  env:
-    NODE_OPTIONS: --max-old-space-size=4096
-  run: yarn build
