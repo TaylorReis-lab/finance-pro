@@ -1,33 +1,33 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { alpha } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import Fade from '@mui/material/Fade';
-import Grow from '@mui/material/Grow';
-import ArrowBack from '@mui/icons-material/ArrowBack';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { FinexaLogo } from '../components/brand/Logo';
-import AppTheme from '../theme/AppTheme';
+import * as React from 'react'
+import CssBaseline from '@mui/material/CssBaseline'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import { alpha, useTheme } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import Fade from '@mui/material/Fade'
+import Grow from '@mui/material/Grow'
+import ArrowBack from '@mui/icons-material/ArrowBack'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
+import { FinexaLogo } from '../components/brand/Logo'
+import AppTheme from '../theme/AppTheme'
 
 // Twitter and GitHub icons with weaker color and hover animation
-const TwitterIcon = () => (
-  <svg width="20" height="20" fill="#000000" viewBox="0 0 24 24">
+const TwitterIcon = (props: any) => (
+  <svg width="20" height="20" {...props} viewBox="0 0 24 24">
     <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.724-.674 1.562-.674 2.457 0 1.698.864 3.196 2.174 4.073-.803-.026-1.559-.246-2.22-.616v.062c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.396 0-.785-.023-1.169-.067 2.169 1.394 4.742 2.212 7.514 2.212 9.018 0 13.949-7.474 13.949-13.949 0-.213 0-.425-.015-.636.961-.695 1.797-1.562 2.457-2.549z" />
   </svg>
-);
+)
 
-const GitHubIcon = () => (
-  <svg width="20" height="20" fill="#000000" viewBox="0 0 24 24">
+const GitHubIcon = (props: any) => (
+  <svg width="20" height="20" {...props} viewBox="0 0 24 24">
     <path d="M12 2C6.475 2 2 6.475 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.645.35-1.087.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 7.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.335 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.525-4.475-10-10-10z" />
   </svg>
-);
+)
 
 // Componente de Loading com animação da logo balançando
 const LoadingAnimation = () => {
@@ -48,10 +48,10 @@ const LoadingAnimation = () => {
         },
       }}
     >
-      <Typography 
-        variant="body2" 
-        sx={{ 
-          mt: 1, 
+      <Typography
+        variant="body2"
+        sx={{
+          mt: 1,
           color: '#1e90ff',
           fontWeight: 'bold',
           animation: 'fadeInOut 1.5s ease-in-out infinite',
@@ -59,52 +59,55 @@ const LoadingAnimation = () => {
             '0%': { opacity: 0.5 },
             '50%': { opacity: 1 },
             '100%': { opacity: 0.5 },
-          }
+          },
         }}
       >
         <FinexaLogo width={60} height={30} />
       </Typography>
     </Box>
-  );
-};
+  )
+}
 
 export default function Login() {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [loaded, setLoaded] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const theme = useTheme()
+  const isLight = theme.palette.mode === 'light'
+
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [showPassword, setShowPassword] = React.useState(false)
+  const [loaded, setLoaded] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
 
   React.useEffect(() => {
-    setTimeout(() => setLoaded(true), 300); // delay para animação de entrada
-  }, []);
+    setTimeout(() => setLoaded(true), 300) // delay para animação de entrada
+  }, [])
 
   const handleSignIn = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
+    e.preventDefault()
+    setIsLoading(true)
+
     // Simula um processo de login
     setTimeout(() => {
-      setIsLoading(false);
-      console.log('Sign in with:', { email, password });
-    }, 2000);
-  };
+      setIsLoading(false)
+      console.log('Sign in with:', { email, password })
+    }, 2000)
+  }
 
   const handleSSOSignIn = (provider: string) => {
-    setIsLoading(true);
-    
+    setIsLoading(true)
+
     // Simula um processo de SSO
     setTimeout(() => {
-      setIsLoading(false);
-      console.log('Sign in with SSO:', provider);
-    }, 2000);
-  };
+      setIsLoading(false)
+      console.log('Sign in with SSO:', provider)
+    }, 2000)
+  }
 
   const handleGoBack = () => {
     // Lógica para voltar à tela inicial
-    console.log('Voltando para a tela inicial');
-    window.location.href = '/'; // ou use seu roteador preferido
-  };
+    console.log('Voltando para a tela inicial')
+    window.location.href = '/' // ou use seu roteador preferido
+  }
 
   return (
     <AppTheme>
@@ -188,7 +191,7 @@ export default function Login() {
                     <LoadingAnimation />
                   </Box>
                 )}
-                
+
                 <Stack spacing={2}>
                   <Typography variant="h5" align="center" sx={{ fontWeight: 'bold', color: 'white' }}>
                     Sign in to your account
@@ -198,8 +201,8 @@ export default function Login() {
                     <a
                       href="#"
                       style={{ color: '#155EEF', textDecoration: 'none' }}
-                      onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
-                      onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
+                      onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                      onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
                     >
                       Create one.
                     </a>
@@ -322,7 +325,13 @@ export default function Login() {
                         },
                       },
                     }}
-                    InputLabelProps={{ sx: { color: 'rgba(255,255,255,0.7)' } }}
+                    InputLabelProps={{
+                      sx: {
+                        color: isLight
+                          ? 'rgba(0,0,0,0.7)' // preto no tema claro
+                          : 'rgba(255,255,255,0.7)', // branco no tema escuro
+                      },
+                    }}
                   />
                   <TextField
                     label="Password"
@@ -356,14 +365,20 @@ export default function Login() {
                         </InputAdornment>
                       ),
                     }}
-                    InputLabelProps={{ sx: { color: 'rgba(255,255,255,0.7)' } }}
+                    InputLabelProps={{
+                      sx: {
+                        color: isLight
+                          ? 'rgba(0,0,0,0.7)' // preto no tema claro
+                          : 'rgba(255,255,255,0.7)', // branco no tema escuro
+                      },
+                    }}
                   />
                   <Typography align="right" sx={{ color: '#1e90ff', mb: 2, fontSize: '0.875rem' }}>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       style={{ textDecoration: 'none' }}
-                      onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
-                      onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
+                      onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                      onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
                     >
                       Forgot?
                     </a>
@@ -389,17 +404,17 @@ export default function Login() {
                     }}
                   >
                     {isLoading ? (
-                      <Box 
-                        sx={{ 
-                          display: 'flex', 
-                          alignItems: 'center', 
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
                           justifyContent: 'center',
                           animation: 'pulse 1.5s ease-in-out infinite',
                           '@keyframes pulse': {
                             '0%': { opacity: 0.7 },
                             '50%': { opacity: 1 },
                             '100%': { opacity: 0.7 },
-                          }
+                          },
                         }}
                       >
                         Carregando...
@@ -413,8 +428,8 @@ export default function Login() {
                     <a
                       href="#"
                       style={{ color: '#1e90ff', textDecoration: 'none' }}
-                      onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
-                      onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
+                      onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                      onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
                     >
                       Terms & Conditions
                     </a>{' '}
@@ -422,8 +437,8 @@ export default function Login() {
                     <a
                       href="#"
                       style={{ color: '#1e90ff', textDecoration: 'none' }}
-                      onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'}
-                      onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}
+                      onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                      onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
                     >
                       Privacy Policy
                     </a>
@@ -436,5 +451,5 @@ export default function Login() {
         </Grow>
       </Box>
     </AppTheme>
-  );
+  )
 }
