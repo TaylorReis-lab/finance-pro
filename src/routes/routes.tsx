@@ -6,6 +6,9 @@ import Settings from '../pages/Settings'
 import Clients from '../pages/Clients'
 import NotFound from '../pages/NotFound' 
 import FeedbackForm from '../pages/FeedbackForm'
+import Analytics from '../pages/Analytcs'
+import Terms from '../pages/terms/terms'
+import PrivacyTerms from '../pages/terms/privacyTerms'
 
 export default function AppRoutes() {
   return (
@@ -17,6 +20,9 @@ export default function AppRoutes() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/clients" element={<Clients />} />
         <Route path="/feedback" element={<FeedbackForm />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/termosecondicoes" element={<Terms />} />
+        <Route path="/politica-de-privacidade" element={<PrivacyTerms />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

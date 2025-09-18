@@ -7,6 +7,10 @@ import Stack from '@mui/material/Stack'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { useTheme } from '@mui/material/styles'
 
+function formatCurrency(value: number) {
+  return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+}
+
 export default function PageViewsBarChart() {
   const theme = useTheme()
   const colorPalette = [
@@ -14,11 +18,14 @@ export default function PageViewsBarChart() {
     (theme.vars || theme).palette.primary.main,
     (theme.vars || theme).palette.primary.light,
   ]
+  // Valores fictícios de dinheiro
+  const total = 140000
+  const variation = +0.3 // -10%
   return (
     <Card variant="outlined" sx={{ width: '100%' }}>
       <CardContent>
         <Typography component="h2" variant="subtitle2" gutterBottom>
-          Page views and downloads
+          Receita e conversões
         </Typography>
         <Stack sx={{ justifyContent: 'space-between' }}>
           <Stack
@@ -30,12 +37,16 @@ export default function PageViewsBarChart() {
             }}
           >
             <Typography variant="h4" component="p">
-              1.4M
+              {formatCurrency(total)}
             </Typography>
-            <Chip size="small" color="error" label="-10%" />
+            <Chip
+              size="small"
+              color={variation < 0 ? 'error' : 'success'}
+              label={`${variation > 0 ? '+' : ''}${(variation * 100).toFixed(0)}%`}
+            />
           </Stack>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Page views and downloads for the last 4 months
+            Receita e conversões dos últimos 4 meses
           </Typography>
         </Stack>
         <BarChart
@@ -49,23 +60,23 @@ export default function PageViewsBarChart() {
               height: 24,
             },
           ]}
-          yAxis={[{ width: 50 }]}
+          yAxis={[{ width: 70, valueFormatter: formatCurrency }]}
           series={[
             {
-              id: 'page-views',
-              label: 'Page views',
-              data: [2234, 3872, 2998, 4125, 3357, 2789, 2998],
+              id: 'receita',
+              label: 'Receita',
+              data: [22340, 38720, 29980, 41250, 33570, 27890, 29980],
               stack: 'A',
             },
             {
-              id: 'downloads',
-              label: 'Downloads',
-              data: [3098, 4215, 2384, 2101, 4752, 3593, 2384],
+              id: 'despesas',
+              label: 'Despesas',
+              data: [10980, 22150, 18384, 21010, 17520, 15930, 18384],
               stack: 'A',
             },
             {
-              id: 'conversions',
-              label: 'Conversions',
+              id: 'lucro',
+              label: 'Lucro',
               data: [4051, 2275, 3129, 4693, 3904, 2038, 2275],
               stack: 'A',
             },
