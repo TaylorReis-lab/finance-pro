@@ -325,7 +325,7 @@ export default function Login() {
                         },
                       },
                     }}
-                    InputLabelProps={{ sx: { color: isLight ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.7)' } }}
+                    InputLabelProps={{ sx: { color: 'rgba(255,255,255,0.7)' } }}
                   />
                   <TextField
                     label="Password"
@@ -352,14 +352,14 @@ export default function Login() {
                             onClick={() => setShowPassword(!showPassword)}
                             edge="end"
                             disabled={isLoading}
-                            sx={{ color: isLight ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.7)' }}
+                            sx={{ color: 'rgba(255,255,255,0.7)' }}
                           >
                             {showPassword ? <VisibilityOff /> : <Visibility />}
                           </IconButton>
                         </InputAdornment>
                       ),
                     }}
-                    InputLabelProps={{ sx: { color: isLight ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.7)' } }}
+                    InputLabelProps={{ sx: { color: 'rgba(255,255,255,0.7)' } }}
                   />
                   <Typography align="right" sx={{ color: '#1e90ff', mb: 2, fontSize: '0.875rem' }}>
                     <a
